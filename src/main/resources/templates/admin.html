@@ -84,6 +84,8 @@
                             <td th:text="${user.roles}">EMAIL</td>
 
                             <td>
+
+
                                 <button type="button" class="btn btn-info" data-toggle="modal"
                                         th:attr="data-target='#edit' + ${user.id}">Edit
                                 </button>
@@ -291,14 +293,13 @@
                                     </div>
                                 </div>
                             </td>
-                        </tr>
                         </tbody>
                     </table>
                 </div>
 
 
 
-                <div class="tab-pane fade" id="create" role="tabpanel" aria-labelledby="create-tab">
+                <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="create-tab">
                     <div class="card">
                         <div class="card-header"><strong>Add new user</strong></div>
                         <div class="card-body">

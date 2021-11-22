@@ -48,7 +48,7 @@ public class UserController {
         return "admin";
     }
 
-    @GetMapping(value = "/admin/new")
+    @GetMapping(value = "/new")
     public String newUser(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("roles", roleService.getAllRoles());
