@@ -299,54 +299,51 @@
 
 
 
-                <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="create-tab">
+                <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="new-tab">
                     <div class="card">
-                        <div class="card-header"><strong>Add new user</strong></div>
+                        <div><h5 class="card-header">Add new user</h5></div>
                         <div class="card-body">
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-md-5 ">
                                     <div class="container text-center">
-                                        <form action="#" th:action="@{/admin/create}" th:object="${user}" method="post"
+                                        <form  th:method="POST" th:action="@{/admin/create}" th:object="${user}"
                                               align="center">
 
                                             <div class="form-group">
-                                                <label for="newFirstName" class=" font-weight-bold">First Name</label>
-                                                <input type="text" name="FirstName" class="form-control"
-                                                       id="newFirstName"
+                                                <label for="firstName" class=" font-weight-bold">First Name</label>
+                                                <input type="text" name="firstName" class="form-control"
+                                                       id="firstName"
                                                        placeholder="Enter your first name" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="newLastName" class=" font-weight-bold">Last Name</label>
-                                                <input type="text" name="LastName" class="form-control" id="newLastName"
+                                                <label for="lastName" class=" font-weight-bold">Last Name</label>
+                                                <input type="text" name="lastName" class="form-control" id="lastName"
                                                        placeholder="Enter your last name" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="newAge" class=" font-weight-bold">Age</label>
-                                                <input type="text" name="Age" class="form-control" id="newAge"
+                                                <label for="age" class=" font-weight-bold">Age</label>
+                                                <input type="text" name="age" class="form-control" id="age"
                                                        placeholder="Enter your age" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="newUsername" class=" font-weight-bold">Username</label>
-                                                <input type="text" name="Username" class="form-control" id="newUsername"
-                                                       placeholder="Enter your username" required>
+                                                <label for="username" class=" font-weight-bold">E-mail</label>
+                                                <input type="text" name="username" class="form-control" id="username"
+                                                       placeholder="Enter your e-mail" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="newPassword" class=" font-weight-bold">Password</label>
-                                                <input type="password" name="Password" class="form-control"
-                                                       id="newPassword"
+                                                <label for="password" class=" font-weight-bold">Password</label>
+                                                <input type="password" name="password" class="form-control"
+                                                       id="password"
                                                        placeholder="Enter your password" required>
                                             </div>
                                             <div>
-                                                <label for="newRoles" class=" font-weight-bold">Roles:</label>
-                                                <select class="form-control custom-select" size="2" id="newRoles"
-                                                        th:name="roles"
+                                                <label for="roles" class=" font-weight-bold">Roles:</label>
+                                                <select class="form-control custom-select" size="2" id="roles"
+                                                        name="newRoles"
                                                         multiple="multiple" required>
                                                     <option
-
                                                             th:each="role : ${allRoles}"
-                                                            th:action="${role.getRole()}"
-                                                            th:text="${role.role}"> >
-
+                                                            th:text="${role.role}">
                                                     </option>
                                                 </select>
                                             </div>

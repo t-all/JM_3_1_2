@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/")
@@ -48,15 +50,15 @@ public class UserController {
         return "admin";
     }
 
-    @GetMapping(value = "/new")
-    public String newUser(Model model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("roles", roleService.getAllRoles());
-        return "new";
-    }
+//    @GetMapping(value = "/new")
+//    public String newUser(Model model) {
+//        model.addAttribute("user", new User());
+//        model.addAttribute("roles", roleService.getAllRoles());
+//        return "new";
+//    }
 
-    @PostMapping("/create")
-    public String addUser(@ModelAttribute("user") User user, @RequestParam(value = "editRoles") String[] editRoles) {
+    @PostMapping("/admin/create")
+    public String create(@ModelAttribute User user, @RequestParam(value = "newRoles") String[] editRoles) {
         Set<Role> roleSet = new HashSet<>();
         for (String role : editRoles) {
             roleSet.add(roleService.getRoleByRole(role));
@@ -66,7 +68,6 @@ public class UserController {
 
         return "redirect:/admin";
     }
-
 
     @PutMapping(value = "/edit/{id}")
     public String update(@ModelAttribute User user, @RequestParam(value = "editRoles") String[] editRoles) {
