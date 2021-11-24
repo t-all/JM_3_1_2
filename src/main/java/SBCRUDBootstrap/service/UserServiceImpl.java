@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
+
     @Override
     public User getUser(Long id) {
         return userRepository.getById(id);
@@ -45,7 +46,6 @@ public class UserServiceImpl implements UserService {
     public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
-
 
 
     @Override

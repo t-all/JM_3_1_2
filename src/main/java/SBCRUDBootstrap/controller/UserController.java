@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -75,5 +76,14 @@ public class UserController {
     public String delete(@PathVariable("id") Long id) {
         userService.deleteUserById(id);
         return "redirect:/admin";
+    }
+
+    @GetMapping("/login")
+    public ModelAndView loginPage() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
+
+        return modelAndView;
+
     }
 }
